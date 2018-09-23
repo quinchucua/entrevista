@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.entrevista.alfonso;
 
 import java.util.Date;
@@ -7,26 +11,27 @@ import java.util.Date;
  *
  * @author Alfonso
  */
-public class Formulario {
+public class prueba {
     private String nombre;
     private String apellido;
     private String descripcion;
-    private String fecha;   
+    private String fecha;
     private int tipo;
     
 
-    public Formulario(String nombre, String apellido, String descripcion, String fecha, int tipo) {
+    public prueba(String nombre, String apellido, String descripcion, String fecha,int tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
         this.fecha = fecha;
-        this.tipo = tipo;
+        this.tipo=tipo;
     }
-    public Formulario(String nombre, String apellido, String descripcion, String fecha, int tipo,String hecha) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.descripcion = descripcion;
-        this.fecha = fecha;
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 
@@ -61,19 +66,7 @@ public class Formulario {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
-
-    @Override
-    public String toString() {
-        return "Formulario{" + "nombre=" + nombre + ", apellido=" + apellido + ", descripcion=" + descripcion + ", fecha=" + fecha + ", tipo=" + tipo + '}';
-    }
+    
     
     
 }
