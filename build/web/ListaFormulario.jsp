@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Busqueda por Tipo</title>
         <style type="text/css">
             table{
                 border-collapse: separate;
@@ -22,32 +22,37 @@
                 background-color: #08088A;    
             }
             td {
-                background-color: #0080FF;
+                background-color: gainsboro;
                 width: 10%;
             }
             #des{
+                padding: 8px;
                 width: 30%;
+                
+            }
+            .registro{
+                text-align: center;
             }
         </style>
     </head>
     
     <body>
-        <h1>Hello World!</h1>
+        <h1 align="center">Busqueda por fecha</h1>
         <table>
             <tr>
+                <th>Fecha</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th id="des">Descripcion</th>
-                <th>Fecha</th>
+                <th>Descripcion</th>
                 <th>Tipo</th>
             </tr>
            <c:forEach var="tem"  items="${listaFormulario}">
             <tr>
-                <td> ${tem.nombre}</td>
-                <td>${tem.apellido}</td>
-                <td>${tem.descripcion}</td>
-                <td>${tem.fecha}</td>
-                <td>${tem.tipo}</td>
+                <td class="registro">${tem.fecha}</td>
+                <td class="registro">${tem.nombre}</td>
+                <td class="registro">${tem.apellido}</td>
+                <td id="des">${tem.descripcion}</td>                
+                <td class="registro">${tem.tipos}</td>
             </tr>
             
             

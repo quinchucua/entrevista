@@ -55,13 +55,13 @@ public class modelo {
         
         
         conexion = pool.getConnection();
-        String sql = "select * from Formulario";
+        String sql = "SELECT * FROM formulario  LEFT JOIN tipo_peticion  ON formulario.Tipo_peticion = tipo_peticion.idTipo_peticion  ORDER by Fecha";
         sentencia = conexion.createStatement();
         resul = sentencia.executeQuery(sql);
         while (resul.next()){
             String nombre = resul.getString("Nombre");
             String apellido = resul.getString("Apellido");
-            int tipo = resul.getInt("Tipo_peticion");
+            String tipo = resul.getString("Peticion");
             String fecha = resul.getString("Fecha");
             String descripcion = resul.getString("Descripcion");
             Formulario tempFor = new Formulario(nombre, apellido, descripcion, fecha, tipo);
@@ -72,5 +72,28 @@ public class modelo {
         
     } 
     
-
+    public List<Formulario> obtenerTipo()throws Exception{
+        
+        List<Formulario> formulario2 = new ArrayList<>();
+        
+        conexion = pool.getConnection();
+        
+        String sql = "SELECT * FROM formulario  LEFT JOIN tipo_peticion  ON formulario.Tipo_peticion = tipo_peticion.idTipo_peticion  ORDER by Peticion";
+        
+        sentencia = conexion.createStatement();
+        
+        resul = sentencia.executeQuery(sql);
+        
+        while (resul.next()){
+            String nombre = resul.getString("Nombre");
+            String apellido = resul.getString("Apellido");
+            String tipo = resul.getString("Peticion");
+            String fecha = resul.getString("Fecha");
+            String descripcion = resul.getString("Descripcion");
+            Formulario tempFor2 = new Formulario(nombre, apellido, descripcion, fecha, tipo);
+            formulario2.add(tempFor2);     
+        }
+        
+        return formulario2;
+    }
 }

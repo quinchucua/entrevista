@@ -12,9 +12,17 @@ public class Formulario {
     private String apellido;
     private String descripcion;
     private String fecha;   
+    private String tipos;
     private int tipo;
     
 
+    public Formulario(String nombre, String apellido, String descripcion, String fecha, String tipos) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.tipos = tipos;
+    }
     public Formulario(String nombre, String apellido, String descripcion, String fecha, int tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -22,12 +30,13 @@ public class Formulario {
         this.fecha = fecha;
         this.tipo = tipo;
     }
-    public Formulario(String nombre, String apellido, String descripcion, String fecha, int tipo,String hecha) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.descripcion = descripcion;
-        this.fecha = fecha;
-        this.tipo = tipo;
+
+    public String getTipos() {
+        return tipos;
+    }
+
+    public void setTipos(String tipos) {
+        this.tipos = tipos;
     }
 
     public String getNombre() {

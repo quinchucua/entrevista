@@ -53,24 +53,32 @@ public class controlador extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Formulario> formuario;
-        try {
-            formuario = modelo.obtenerFormulario();
-            request.setAttribute("listaFormulario", formuario);
-            RequestDispatcher despachador = request.getRequestDispatcher("/ListaFormulario.jsp");
-            despachador.forward(request, response);
-        } catch (Exception e) {
-            e.printStackTrace();
+        String comand = request.getParameter("operacion");
+         
+        if (comand == null) comand="fecha";
+        
+        switch (comand){
+            case "peticion":
+                BuscarTipo(request,response);
+                break;
+            
+            case "fecha":
+                BuscarFecha(request,response);
+                break;
         }
         
         
         
+        
+        
+       
     }
 
    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String fecha =request.getParameter("fecha");
@@ -85,21 +93,47 @@ public class controlador extends HttpServlet {
         request.setAttribute("operacion", operacion);
         RequestDispatcher despachador = request.getRequestDispatcher("/index.jsp");
         despachador.forward(request, response);
-        
-        
+         
+    }
+    
+    
+
+    
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+    private void BuscarTipo(HttpServletRequest request, HttpServletResponse response) {
+        List<Formulario> formuario2;
+        try {
+            formuario2 = modelo.obtenerTipo();
+            request.setAttribute("listaTipo", formuario2);
+            RequestDispatcher despachador = request.getRequestDispatcher("/Busqueda_tipo.jsp");
+            despachador.forward(request, response);
+            
+        } catch (Exception e) {
+        }
+           
+            
+    
+    }
+
+    private void BuscarFecha(HttpServletRequest request, HttpServletResponse response) {
+     List<Formulario> formuario;
+        try {
+            formuario = modelo.obtenerFormulario();
+            request.setAttribute("listaFormulario", formuario);
+            RequestDispatcher despachador = request.getRequestDispatcher("/ListaFormulario.jsp");
+            despachador.forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
         
         
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+   
 
 }
