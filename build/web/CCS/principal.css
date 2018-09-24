@@ -1,0 +1,26 @@
+                textarea {
+                    vertical-align: top;
+                }
+                #contenedor{
+                    width: 40%;
+                    padding: 10px;
+                    margin: 0 auto;
+                    background-color: bisque;
+                }
+                #consultas{
+                    display: flex;
+                    width: 40%;
+                    padding: 10px;
+                    margin: 0 auto;
+                    background-color: buttonface;
+                    
+                }
+                .consul{
+                    padding-left: 40px;
+                }
+                #enviar{
+                    margin-left: 40%;
+                }
+                body{
+                    background-color: #ffffcc;
+                }

@@ -53,6 +53,8 @@ public class controlador extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String sel = request.getParameter("opcion");
+        
         String comand = request.getParameter("operacion");
          
         if (comand == null) comand="fecha";
@@ -65,6 +67,21 @@ public class controlador extends HttpServlet {
             case "fecha":
                 BuscarFecha(request,response);
                 break;
+            
+            case "tercer":
+                
+                BuscarTipoA(request, response, sel);
+                
+                break;
+             
+            case "cuarto":
+                
+                BucarFechaAD(request, response, sel);
+                
+                break;
+                
+            
+                
         }
         
         
@@ -73,6 +90,8 @@ public class controlador extends HttpServlet {
         
        
     }
+
+  
 
    
     @Override
@@ -131,6 +150,39 @@ public class controlador extends HttpServlet {
         }
         
         
+        
+    }
+
+    private void BuscarTipoA(HttpServletRequest request, HttpServletResponse response, String sel) {
+    
+    List<Formulario> formuario3;
+    String op = sel;
+    try {
+            formuario3 = modelo.ObtenerOTipo(op);
+            request.setAttribute("listaTipo", formuario3);
+            RequestDispatcher despachador = request.getRequestDispatcher("/Busqueda_tipo.jsp");
+            despachador.forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+        
+    }
+
+    private void BucarFechaAD(HttpServletRequest request, HttpServletResponse response, String sel) {
+        
+        List<Formulario> formuario3;
+        
+        String op = sel;
+        
+    try {
+            formuario3 = modelo.ObtenerFechaAD(op);
+            request.setAttribute("listaFormulario", formuario3);
+            RequestDispatcher despachador = request.getRequestDispatcher("/ListaFormulario.jsp");
+            despachador.forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
     }
 

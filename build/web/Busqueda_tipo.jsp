@@ -9,33 +9,27 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="CCS/estilos.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Busqueda Tipo</title>
-        <style type="text/css">
-            table{
-                border-collapse: separate;
-                border: black 2px solid;
-            }
-            th {
-                color: #FFFFFF;
-                background-color: #08088A;    
-            }
-            td {
-                background-color: gainsboro;
-                width: 10%;
-            }
-            #des{
-                padding: 8px;
-                width: 30%;
-            }
-            .registro{
-                text-align: center;
-            }
-        </style>
+        
     </head>
     
     <body>
         <h1 align="center">Busqueda por Peticion</h1>
+        <div id="enlace"><a href="http://localhost:8084/PruebaEntrevista">Regrasar a Inicio</a>
+                         <a id="peticion" href="http://localhost:8084/PruebaEntrevista/controlador">Ir a Busqueda Fecha</a></div><br>
+        <div id="sel">
+            <form action="controlador" method="get">
+                <select name="opcion">
+                    <option value="asc">ascendente</option>
+                    <option value="desc">descendente</option>                    
+                </select>                
+                <input type="hidden" name="operacion" value="tercer">
+                <input type="submit" value="Filtrar">
+            </form><br><br>
+            
+        </div>
         <table>
             <tr>
                 <th>Tipo</th>
@@ -54,8 +48,7 @@
                 <td id="des">${tem.descripcion}</td>                
                 
             </tr>
-            
-            
+                        
             
            </c:forEach>
         </table>

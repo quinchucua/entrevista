@@ -12,32 +12,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Busqueda por Tipo</title>
-        <style type="text/css">
-            table{
-                border-collapse: separate;
-                border: black 2px solid;
-            }
-            th {
-                color: #FFFFFF;
-                background-color: #08088A;    
-            }
-            td {
-                background-color: gainsboro;
-                width: 10%;
-            }
-            #des{
-                padding: 8px;
-                width: 30%;
-                
-            }
-            .registro{
-                text-align: center;
-            }
-        </style>
+        <link href="CCS/estilos.css" rel="stylesheet">    
+        
+        
     </head>
     
     <body>
         <h1 align="center">Busqueda por fecha</h1>
+        <div id="enlace"><a id="inicio" href="http://localhost:8084/PruebaEntrevista">Regrasar a Inicio</a>
+            <a id="peticion" href="http://localhost:8084/PruebaEntrevista/controlador?operacion=peticion">Ir a Busqueda Peticion</a></div><br>
+        <div id="sel">
+            <form action="controlador" method="get">
+                <select name="opcion">
+                    <option value="asc">ascendente</option>
+                    <option value="desc">descendente</option>                    
+                </select>                
+                <input type="hidden" name="operacion" value="cuarto">
+                <input type="submit" value="Filtrar">
+            </form><br><br>
+            
+        </div>
         <table>
             <tr>
                 <th>Fecha</th>

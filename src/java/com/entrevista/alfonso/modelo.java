@@ -30,7 +30,7 @@ public class modelo {
     }
     
     public String Guardar(Formulario formu){
-        String operacion = "exitosa";
+        String operacion = "Datos Guardados Exitosamente";
         try {
             
             conexion = pool.getConnection();
@@ -96,4 +96,75 @@ public class modelo {
         
         return formulario2;
     }
+    
+     public List<Formulario> ObtenerOTipo(String op)throws Exception{
+        
+        List<Formulario> formulario3 = new ArrayList<>();
+        
+        String sql;
+        
+        
+        //conexion = pool.getConnection();
+        if (op.equalsIgnoreCase("asc")){
+        sql = "SELECT * FROM formulario  LEFT JOIN tipo_peticion  ON formulario.Tipo_peticion = tipo_peticion.idTipo_peticion  ORDER by Peticion ASC ";
+        }else{
+        sql = "SELECT * FROM formulario  LEFT JOIN tipo_peticion  ON formulario.Tipo_peticion = tipo_peticion.idTipo_peticion  ORDER by Peticion DESC ";    
+        }
+               
+        sentencia = conexion.createStatement();
+        
+        resul = sentencia.executeQuery(sql);
+        
+        
+        while (resul.next()){
+            String nombre = resul.getNString("Nombre");
+            String apellido = resul.getString("Apellido");
+            String tipo = resul.getString("Peticion");
+            String fecha = resul.getString("Fecha");
+            String descripcion = resul.getString("Descripcion");
+            Formulario tempFor3 = new Formulario(nombre, apellido, descripcion, fecha, tipo);
+            formulario3.add(tempFor3);
+        }
+        
+        return formulario3;
+         
+     }
+     
+     public List<Formulario> ObtenerFechaAD(String op)throws Exception{
+         
+        String ope = op;
+        
+        List<Formulario> formulario4 = new ArrayList<>();
+        
+        String sql ;
+        
+        if (op.equalsIgnoreCase("asc")){
+            
+        sql = "SELECT * FROM formulario  LEFT JOIN tipo_peticion  ON formulario.Tipo_peticion = tipo_peticion.idTipo_peticion  ORDER by Fecha ASC ";
+        
+        }else{
+            
+        sql = "SELECT * FROM formulario  LEFT JOIN tipo_peticion  ON formulario.Tipo_peticion = tipo_peticion.idTipo_peticion  ORDER by Fecha DESC ";    
+       
+        }
+        
+        sentencia = conexion.createStatement();
+        
+        resul = sentencia.executeQuery(sql);
+        
+        while (resul.next()){
+            String nombre = resul.getNString("Nombre");
+            String apellido = resul.getString("Apellido");
+            String tipo = resul.getString("Peticion");
+            String fecha = resul.getString("Fecha");
+            String descripcion = resul.getString("Descripcion");
+            Formulario tempFor3 = new Formulario(nombre, apellido, descripcion, fecha, tipo);            
+            formulario4.add(tempFor3);
+        }
+        
+        return formulario4;
+         
+         
+     }
+     
 }

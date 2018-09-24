@@ -5,41 +5,18 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Aplicación</title>
-        <style>
-            textarea {
-             vertical-align: top;
-                }
-                #contenedor{
-                    width: 40%;
-                    padding: 10px;
-                    margin: 0 auto;
-                    background-color: bisque;
-                }
-                #consultas{
-                    display: flex;
-                    width: 40%;
-                    padding: 10px;
-                    margin: 0 auto;
-                    background-color: buttonface;
-                    
-                }
-                .consul{
-                    padding-left: 40px;
-                }
-                #enviar{
-                    margin-left: 40%;
-                }
-            
-        </style>
+        <link href="CCS/principal.css" rel="stylesheet">
     </head>
     <body>
         <h1 align="center">PAGINA DE INICIO</h1>
         <h2 align="center">INGRESE LOS DATOS</h2>
+        <h2 align="center">${operacion}</h2>
         <div id="contenedor">
             <form action="controlador" method="post">
             Nombres:
