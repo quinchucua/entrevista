@@ -109,10 +109,12 @@ public class controlador extends HttpServlet {
         String descripcion = request.getParameter("comentarios");
         String tip = request.getParameter("peticion");
         int tipo = Integer.parseInt(tip);
+        //String nomArch = 
         
         byte [] archivo = null;
         
         Part archivoP = request.getPart("archivo");
+        String nomArch = archivoP.getSubmittedFileName();
         int tamaño = (int)archivoP.getSize();
         
         
@@ -124,7 +126,7 @@ public class controlador extends HttpServlet {
             
         }
          
-        Formulario formu = new Formulario(nombre, apellido, descripcion, fecha, tipo,archivo);
+        Formulario formu = new Formulario(nombre, apellido, descripcion, fecha, tipo,archivo,nomArch);
         String operacion =modelo.Guardar(formu);
         
         

@@ -21,9 +21,29 @@
             .registro{
                 text-align: center;
             }
-            #enlace {
-                position: relative;
-                left: 35%;
+            
+            #enlaces{
+                display: flex;
+            }
+            .enlace{
+                 
+                margin: 0 auto;
+                margin-bottom: 50px;
+                width: 15%;
+                height: 30px;
+                padding: 10px 20px 5px 20px;
+                background-image: -webkit-linear-gradient(top, #cc2626, #ff6867);
+                background-image: -moz-linear-gradient(top, #cc2626, #ff6867);
+                background-image: -ms-linear-gradient(top, #cc2626, #ff6867);
+                background-image: -o-linear-gradient(top, #cc2626, #ff6867);
+                background-image: linear-gradient(to bottom, #cc2626, #ff6867);
+                -webkit-border-radius: 12;
+                -moz-border-radius: 12;
+                border-radius: 12px;
+            }
+            .dirigir{
+                text-align: center;
+                padding: 10px 20px 5px 20px;
             }
             #peticion{
                 margin-left: 150px;

@@ -31,11 +31,11 @@ public class modelo {
     }
     
     public String Guardar(Formulario formu){
-        String operacion = "Datos Guardados Exitosamente";
+        String operacion = "Datos Guardados Exitosamente ";
         try {
             
             conexion = pool.getConnection();
-            String sentenSql = "insert into formulario (Nombre,Apellido,Descripcion,Fecha,Tipo_peticion,adjunto) VALUES (?,?,?,?,?,?)";
+            String sentenSql = "insert into formulario (Nombre,Apellido,Descripcion,Fecha,Tipo_peticion,adjunto,nombre_archivo) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement sen = conexion.prepareStatement(sentenSql);
             sen.setString(1, formu.getNombre());
             sen.setString(2, formu.getApellido());
@@ -43,6 +43,7 @@ public class modelo {
             sen.setString(4, formu.getFecha());
             sen.setInt(5, formu.getTipo());
             sen.setBytes(6, formu.getArchivo());
+            sen.setString(7, formu.getNombre_archivo());
             sen.executeUpdate();
             
         } catch (SQLException ex) {
@@ -67,8 +68,10 @@ public class modelo {
             String fecha = resul.getString("Fecha");
             String descripcion = resul.getString("Descripcion");
             byte [] archivo = resul.getBytes("adjunto");
+            String nombArch = resul.getString("nombre_archivo");
+            
             //InputStream archivo = resul.get
-            Formulario tempFor = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo);
+            Formulario tempFor = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo, nombArch);
             formulario.add(tempFor);
         }
         
@@ -95,7 +98,9 @@ public class modelo {
             String fecha = resul.getString("Fecha");
             String descripcion = resul.getString("Descripcion");
             byte [] archivo = resul.getBytes("adjunto");
-            Formulario tempFor2 = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo);
+            String nombArch = resul.getString("nombre_archivo");
+            
+            Formulario tempFor2 = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo,nombArch);
             formulario2.add(tempFor2);     
         }
         
@@ -128,7 +133,8 @@ public class modelo {
             String fecha = resul.getString("Fecha");
             String descripcion = resul.getString("Descripcion");
             byte [] archivo = resul.getBytes("adjunto");
-            Formulario tempFor3 = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo);
+            String nombArch = resul.getString("nombre_archivo");
+            Formulario tempFor3 = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo,nombArch);
             formulario3.add(tempFor3);
         }
         
@@ -165,7 +171,9 @@ public class modelo {
             String fecha = resul.getString("Fecha");
             String descripcion = resul.getString("Descripcion");
             byte [] archivo = resul.getBytes("adjunto");
-            Formulario tempFor3 = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo);            
+            String nombArch = resul.getString("nombre_archivo");
+            
+            Formulario tempFor3 = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo, nombArch);            
             formulario4.add(tempFor3);
         }
         

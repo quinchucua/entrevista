@@ -14,9 +14,11 @@
         <link href="CCS/principal.css" rel="stylesheet">
     </head>
     <body>
+        <div id="head" >
         <h1 align="center">PAGINA DE INICIO</h1>
         <h2 align="center">INGRESE LOS DATOS</h2>
         <h2 align="center">${operacion}</h2>
+        </div>
         <div id="contenedor">
             <form action="controlador" method="post" enctype="multipart/form-data" >
             Nombres:
@@ -32,10 +34,11 @@
                 <option value=3>Reclamo</option>
             </select><br><br>
             Descripcion: 
-            <textarea name="comentarios" rows="10" cols="40" placeholder="Escribe aquí tus comentarios"></textarea><br><br>
-            <input type="file" name="archivo"  class="btn"/><br>
+            <textarea name="comentarios" rows="10" cols="60" placeholder="Escribe aquí tus comentarios"></textarea><br><br>
+            Adjuntar Archivo:
+            <input type="file" name="archivo" /><br><br>
             <div id="enviar">
-            <input  type="submit" value="Enviar">
+                <input  type="submit" value="Enviar" class="btn">
             </div>
             
         </form><br><br>
@@ -45,13 +48,13 @@
         <div id="consultas">
             <form class="consul" action="controlador" method="get">
                  Consultar por Fecha 
-                 <input type="submit" value="Buscar">
+                 <input type="submit" value="Buscar" class="btn">
                                 
             </form>
             <form class="consul" action="controlador" method="get">
                  Consultar por Peticion
                  <input type="hidden" name="operacion" value="peticion">
-                 <input type="submit" value="Buscar">
+                 <input type="submit" value="Buscar" class="btn">
                                 
             </form>
         </div>

@@ -14,35 +14,41 @@ public class Formulario {
     private String descripcion;
     private String fecha;   
     private String tipos;
+    private String nombre_archivo;
     private int tipo;
     private byte [] archivo;
     
     
 
-    public Formulario(String nombre, String apellido, String descripcion, String fecha, String tipos, byte [] archivo) {
+    public Formulario(String nombre, String apellido, String descripcion, String fecha, String tipos, byte [] archivo, String nombArch) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.tipos = tipos;
         this.archivo = archivo;
+        nombre_archivo = nombArch;
     }
-    public Formulario(String nombre, String apellido, String descripcion, String fecha, String tipos) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.descripcion = descripcion;
-        this.fecha = fecha;
-        this.tipos = tipos;
-        
-    }
-    public Formulario(String nombre, String apellido, String descripcion, String fecha, int tipo, byte [] archivo) {
+    
+    public Formulario(String nombre, String apellido, String descripcion, String fecha, int tipo, byte [] archivo, String nombArch) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.tipo = tipo;
         this.archivo = archivo;
+        nombre_archivo = nombArch;
     }
+
+    public String getNombre_archivo() {
+        return nombre_archivo;
+    }
+
+    public void setNombre_archivo(String nombre_archivo) {
+        this.nombre_archivo = nombre_archivo;
+    }
+    
+    
 
     public byte [] getArchivo() {
         return archivo;
