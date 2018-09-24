@@ -39,6 +39,7 @@
                 <th>Apellido</th>
                 <th>Descripcion</th>
                 <th>Tipo</th>
+                <th>Adjunto</th>
             </tr>
            <c:forEach var="tem"  items="${listaFormulario}">
             <tr>
@@ -47,6 +48,7 @@
                 <td class="registro">${tem.apellido}</td>
                 <td id="des">${tem.descripcion}</td>                
                 <td class="registro">${tem.tipos}</td>
+                <td class="registro">${tem.archivo}</td>
             </tr>
             
             

@@ -37,6 +37,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Descripcion</th>
+                <th>Adjunto</th>
                 
             </tr>
            <c:forEach var="tem"  items="${listaTipo}">
@@ -45,7 +46,8 @@
                 <td class="registro">${tem.fecha}</td>
                 <td class="registro">${tem.nombre}</td>
                 <td class="registro">${tem.apellido}</td>
-                <td id="des">${tem.descripcion}</td>                
+                <td id="des">${tem.descripcion}</td>
+                <td class="registro">${tem.archivo}</td>
                 
             </tr>
                         

@@ -18,7 +18,7 @@
         <h2 align="center">INGRESE LOS DATOS</h2>
         <h2 align="center">${operacion}</h2>
         <div id="contenedor">
-            <form action="controlador" method="post">
+            <form action="controlador" method="post" enctype="multipart/form-data" >
             Nombres:
             <input type="text" name="nombre" ><br><br>
             Apellidos:
@@ -33,6 +33,7 @@
             </select><br><br>
             Descripcion: 
             <textarea name="comentarios" rows="10" cols="40" placeholder="Escribe aquí tus comentarios"></textarea><br><br>
+            <input type="file" name="archivo"  class="btn"/><br>
             <div id="enviar">
             <input  type="submit" value="Enviar">
             </div>

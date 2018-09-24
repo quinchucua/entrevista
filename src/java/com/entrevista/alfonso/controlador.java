@@ -5,7 +5,9 @@
  */
 package com.entrevista.alfonso;
 
+import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,10 +19,12 @@ import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import javax.sql.DataSource;
 
 /**
@@ -28,6 +32,7 @@ import javax.sql.DataSource;
  * @author Alfonso
  */
 @WebServlet(name = "controlador", urlPatterns = {"/controlador"})
+@MultipartConfig(maxFileSize = 16177215)
 public class controlador extends HttpServlet {
     private modelo modelo;
     
@@ -105,7 +110,21 @@ public class controlador extends HttpServlet {
         String tip = request.getParameter("peticion");
         int tipo = Integer.parseInt(tip);
         
-        Formulario formu = new Formulario(nombre, apellido, descripcion, fecha, tipo);
+        byte [] archivo = null;
+        
+        Part archivoP = request.getPart("archivo");
+        int tamaño = (int)archivoP.getSize();
+        
+        
+        if (tamaño>0){
+            
+            archivo = new byte [tamaño];
+            DataInputStream ar = new DataInputStream(archivoP.getInputStream());
+            ar.readFully(archivo);
+            
+        }
+         
+        Formulario formu = new Formulario(nombre, apellido, descripcion, fecha, tipo,archivo);
         String operacion =modelo.Guardar(formu);
         
         

@@ -1,6 +1,7 @@
 
 package com.entrevista.alfonso;
 
+import java.io.InputStream;
 import java.util.Date;
 
 /**
@@ -14,21 +15,41 @@ public class Formulario {
     private String fecha;   
     private String tipos;
     private int tipo;
+    private byte [] archivo;
+    
     
 
+    public Formulario(String nombre, String apellido, String descripcion, String fecha, String tipos, byte [] archivo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.tipos = tipos;
+        this.archivo = archivo;
+    }
     public Formulario(String nombre, String apellido, String descripcion, String fecha, String tipos) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.tipos = tipos;
+        
     }
-    public Formulario(String nombre, String apellido, String descripcion, String fecha, int tipo) {
+    public Formulario(String nombre, String apellido, String descripcion, String fecha, int tipo, byte [] archivo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.tipo = tipo;
+        this.archivo = archivo;
+    }
+
+    public byte [] getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(byte [] archivo) {
+        this.archivo = archivo;
     }
 
     public String getTipos() {
