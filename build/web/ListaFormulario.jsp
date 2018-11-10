@@ -40,7 +40,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Descripcion</th>
-                <th>Tipo</th>
+                <th>Telefono</th>
                 <th>Adjunto</th>
             </tr>
            <c:forEach var="tem"  items="${listaFormulario}">
@@ -48,8 +48,9 @@
                 <td class="registro">${tem.fecha}</td>
                 <td class="registro">${tem.nombre}</td>
                 <td class="registro">${tem.apellido}</td>
-                <td id="des">${tem.descripcion}</td>                
-                <td class="registro">${tem.tipos}</td>
+                <td id="des">${tem.descripcion}</td>
+                <td class="registro">${tem.telefono}</td>
+                
                 <td class="registro"><a href="http://localhost:8084/PruebaEntrevista/Mostrar?nombre=${tem.nombre_archivo}">${tem.nombre_archivo}</a></td>
                 
             </tr>

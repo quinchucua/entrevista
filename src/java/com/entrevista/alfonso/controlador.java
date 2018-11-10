@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -107,13 +108,16 @@ public class controlador extends HttpServlet {
         String apellido = request.getParameter("apellido");
         String fecha =request.getParameter("fecha");
         String descripcion = request.getParameter("comentarios");
+        String telefono = request.getParameter("telefono");
         String tip = request.getParameter("peticion");
+        Long tele = Long.parseLong(telefono);
         int tipo = Integer.parseInt(tip);
         //String nomArch = 
         
         byte [] archivo = null;
         
         Part archivoP = request.getPart("archivo");
+        Collection<Part> archivosP = request.getParts();
         String nomArch = archivoP.getSubmittedFileName();
         int tamaño = (int)archivoP.getSize();
         
@@ -126,7 +130,7 @@ public class controlador extends HttpServlet {
             
         }
          
-        Formulario formu = new Formulario(nombre, apellido, descripcion, fecha, tipo,archivo,nomArch);
+        Formulario formu = new Formulario(nombre, apellido, descripcion, fecha, tipo,archivo,nomArch,tele);
         String operacion =modelo.Guardar(formu);
         
         

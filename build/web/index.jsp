@@ -25,6 +25,8 @@
             <input type="text" name="nombre" ><br><br>
             Apellidos:
             <input type="text" name="apellido" ><br><br>
+            Telefono:
+            <input type="text" name="telefono" ><br><br>
             Fecha:
             <input type="date" name="fecha" ><br><br>
             Tipo peticion:
@@ -36,7 +38,9 @@
             Descripcion: 
             <textarea name="comentarios" rows="10" cols="60" placeholder="Escribe aquí tus comentarios"></textarea><br><br>
             Adjuntar Archivo:
-            <input type="file" name="archivo" /><br><br>
+            <input type="file" name="archivo" id_archivo="1"/><br><br>
+            Adjuntar Archivo2:
+            <input type="file" name="archivo" id_archivo="2"/><br><br>
             <div id="enviar">
                 <input  type="submit" value="Enviar" class="btn">
             </div>
