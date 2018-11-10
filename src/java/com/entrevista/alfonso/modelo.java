@@ -1,6 +1,7 @@
 
 package com.entrevista.alfonso;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,17 +31,20 @@ public class modelo {
     }
     
     public String Guardar(Formulario formu){
-        String operacion = "Datos Guardados Exitosamente";
+        String operacion = "Datos Guardados Exitosamente ";
         try {
             
             conexion = pool.getConnection();
-            String sentenSql = "insert into formulario (Nombre,Apellido,Descripcion,Fecha,Tipo_peticion) VALUES (?,?,?,?,?)";
+            String sentenSql = "insert into formulario (Nombre,Apellido,Descripcion,Fecha,Tipo_peticion,adjunto,nombre_archivo,telefono) VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement sen = conexion.prepareStatement(sentenSql);
             sen.setString(1, formu.getNombre());
             sen.setString(2, formu.getApellido());
             sen.setString(3, formu.getDescripcion());
             sen.setString(4, formu.getFecha());
             sen.setInt(5, formu.getTipo());
+            sen.setBytes(6, formu.getArchivo());
+            sen.setString(7, formu.getNombre_archivo());
+            sen.setLong(8, formu.getTelefono());
             sen.executeUpdate();
             
         } catch (SQLException ex) {
@@ -64,7 +68,13 @@ public class modelo {
             String tipo = resul.getString("Peticion");
             String fecha = resul.getString("Fecha");
             String descripcion = resul.getString("Descripcion");
-            Formulario tempFor = new Formulario(nombre, apellido, descripcion, fecha, tipo);
+            String telefono = resul.getString("telefono");
+            byte [] archivo = resul.getBytes("adjunto");
+            String nombArch = resul.getString("nombre_archivo");
+            long tele = Long.parseLong(telefono);
+            
+            //InputStream archivo = resul.get
+            Formulario tempFor = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo, nombArch,tele);
             formulario.add(tempFor);
         }
         
@@ -90,7 +100,12 @@ public class modelo {
             String tipo = resul.getString("Peticion");
             String fecha = resul.getString("Fecha");
             String descripcion = resul.getString("Descripcion");
-            Formulario tempFor2 = new Formulario(nombre, apellido, descripcion, fecha, tipo);
+            String telefono = resul.getString("telefono");
+            byte [] archivo = resul.getBytes("adjunto");
+            String nombArch = resul.getString("nombre_archivo");
+            long tele = Long.parseLong(telefono);
+            
+            Formulario tempFor2 = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo,nombArch,tele);
             formulario2.add(tempFor2);     
         }
         
@@ -122,7 +137,12 @@ public class modelo {
             String tipo = resul.getString("Peticion");
             String fecha = resul.getString("Fecha");
             String descripcion = resul.getString("Descripcion");
-            Formulario tempFor3 = new Formulario(nombre, apellido, descripcion, fecha, tipo);
+            String telefono = resul.getString("telefono");
+            byte [] archivo = resul.getBytes("adjunto");
+            String nombArch = resul.getString("nombre_archivo");
+            long tele = Long.parseLong(telefono);
+            
+            Formulario tempFor3 = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo,nombArch,tele);
             formulario3.add(tempFor3);
         }
         
@@ -158,7 +178,12 @@ public class modelo {
             String tipo = resul.getString("Peticion");
             String fecha = resul.getString("Fecha");
             String descripcion = resul.getString("Descripcion");
-            Formulario tempFor3 = new Formulario(nombre, apellido, descripcion, fecha, tipo);            
+            String telefono = resul.getString("telefono");
+            byte [] archivo = resul.getBytes("adjunto");
+            String nombArch = resul.getString("nombre_archivo");
+            long tele = Long.parseLong(telefono);
+            
+            Formulario tempFor3 = new Formulario(nombre, apellido, descripcion, fecha, tipo, archivo, nombArch,tele);            
             formulario4.add(tempFor3);
         }
         

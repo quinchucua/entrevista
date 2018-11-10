@@ -1,23 +1,84 @@
                 textarea {
                     vertical-align: top;
                 }
+                #head{
+                    width: 40%;
+                    margin: 0 auto;                  
+                    background-image: -webkit-linear-gradient(top, #cc2626, #ff6867);
+                    background-image: -moz-linear-gradient(top, #cc2626, #ff6867);
+                    background-image: -ms-linear-gradient(top, #cc2626, #ff6867);
+                    background-image: -o-linear-gradient(top, #cc2626, #ff6867);
+                    background-image: linear-gradient(to bottom, #cc2626, #ff6867);
+                    -webkit-border-radius: 12;
+                    -moz-border-radius: 12;
+                    border-radius: 12px;
+                    font-family: Arial;
+                    color: #171d22;
+                    font-size: 12px;
+                    padding: 10px 20px 10px 20px;
+                    text-decoration: none;
+                    
+                }
                 #contenedor{
                     width: 40%;
                     padding: 10px;
-                    margin: 0 auto;
-                    background-color: bisque;
+                    margin: 0 auto;                  
+                    background-image: -webkit-linear-gradient(top, #cc2626, #ff6867);
+                    background-image: -moz-linear-gradient(top, #cc2626, #ff6867);
+                    background-image: -ms-linear-gradient(top, #cc2626, #ff6867);
+                    background-image: -o-linear-gradient(top, #cc2626, #ff6867);
+                    background-image: linear-gradient(to bottom, #cc2626, #ff6867);
+                    -webkit-border-radius: 12;
+                    -moz-border-radius: 12;
+                    border-radius: 12px;
+                    font-family: Arial;
+                    color: #171d22;
+                    font-size: 12px;
+                    padding: 10px 20px 10px 20px;
+                    text-decoration: none;
                 }
+                
                 #consultas{
                     display: flex;
                     width: 40%;
                     padding: 10px;
                     margin: 0 auto;
-                    background-color: buttonface;
+                    background-color: #223fa8;
+                    background-image: -webkit-linear-gradient(top, #223c79, #223fa8);
+                    background-image: -moz-linear-gradient(top, #223c79, #223fa8);
+                    background-image: -ms-linear-gradient(top, #223c79, #223fa8);
+                    background-image: -o-linear-gradient(top, #223c79, #223fa8);
+                    background-image: linear-gradient(to bottom, #223c79, #223fa8);
+                    -webkit-border-radius: 12;
+                    -moz-border-radius: 12;
+                    border-radius: 12px;
+                    font-family: Arial;
+                    color: #ffffff;
+                    font-size: 12px;
+                    padding: 10px 20px 10px 20px;
+                    text-decoration: none;
+                    
                     
                 }
                 .consul{
                     padding-left: 40px;
                 }
+                .btn {
+                background: #eb6fb1;
+                background-image: -webkit-linear-gradient(top, #eb6fb1, #cc2626);
+                background-image: -moz-linear-gradient(top, #eb6fb1, #cc2626);
+                background-image: -ms-linear-gradient(top, #eb6fb1, #cc2626);
+                background-image: -o-linear-gradient(top, #eb6fb1, #cc2626);
+                background-image: linear-gradient(to bottom, #eb6fb1, #cc2626);
+                -webkit-border-radius: 12;
+                -moz-border-radius: 12;
+                border-radius: 12px;
+                font-family: Arial;
+                color: #ffffff;
+                font-size: 12px;
+                padding: 10px 20px 10px 20px;
+                text-decoration: none;
+              }
                 #enviar{
                     margin-left: 40%;
                 }
